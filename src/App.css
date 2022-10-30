@@ -36,3 +36,7 @@
     transform: rotate(360deg);
   }
 }
+
+body, html {
+  font-family: Roboto, Arial, Helvetica, sans-serif;
+}
