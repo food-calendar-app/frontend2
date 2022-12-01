@@ -18,7 +18,7 @@ const favorites = [
 ]
 
 export default function FavoritesModal() {
-    const { setShowFavoritesModal } = useContext(GlobalContext);
+    const { setShowFavoritesModal, daySelected, } = useContext(GlobalContext);
 
     return (
         <div className = "h-screen w-full fixed left-0 top-0 flex justify-center items-center">
@@ -39,8 +39,21 @@ export default function FavoritesModal() {
                     </div>
                 </header>
 
-                <div className = "p-3 px-14 pt-4 mt-3">
-                    <Select options = { favorites } />
+                <div className = "p-3 pr-7 pt-4 mt-3">
+                    <div className = "grid grid-cols-1/5 items-end gap-y-7">
+                        <span className = "material-icons-outlined text-gray-400">
+                            schedule
+                        </span>
+                        <p className = "text-left px-3">
+                            { daySelected.format("ddd, MMMM DD") }
+                        </p>
+                        <span className = "material-icons-outlined text-gray-400 mb-2">
+                            restaurant
+                        </span>
+                        <p className = "text-left1">
+                            <Select options = { favorites } />
+                        </p>
+                    </div>
                 </div>
 
                 <footer className = "flex justify-end border-t p-3 mt-5">
