@@ -21,6 +21,8 @@ const GlobalContext = React.createContext({
     setShowDailyModal: () => {},
     showWeeklyModal: false,
     setShowWeeklyModal: () => {},
+    showFavoritesModal: false,
+    setShowFavoritesModal: () => {},
 });
 
 export default GlobalContext;

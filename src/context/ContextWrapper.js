@@ -30,6 +30,7 @@ export default function ContextWrapper(props) {
     const [ showEventModal, setShowEventModal ] = useState(false);
     const [ showDailyModal, setShowDailyModal ] = useState(false);
     const [ showWeeklyModal, setShowWeeklyModal ] = useState(false);
+    const [ showFavoritesModal, setShowFavoritesModal ] = useState(false);
     const [ selectedEvent, setSelectedEvent ] = useState(null);
     const [ labels, setLabels ] = useState([]);
     const [ savedEvents, dispatchCalEvent ] = useReducer(
@@ -108,6 +109,8 @@ export default function ContextWrapper(props) {
                 setShowDailyModal,
                 showWeeklyModal,
                 setShowWeeklyModal,
+                showFavoritesModal,
+                setShowFavoritesModal,
             }}
         >
             { props.children }
