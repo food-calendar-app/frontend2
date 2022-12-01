@@ -4,11 +4,11 @@ import foodImage from "./images/signUpPic.jpg";
 
 export default function SignUp() {
     return (
-        <div className="grid grid-cols-2 gap-2 max-h-screen">
+        <div className="grid grid-cols-2 gap-2">
             <div>
                 <img src={foodImage} alt="foodImage" className="max-h-full object-contain"></img>
             </div>
-            <div className="py-56 px-8">
+            <div className="pt-56 px-8">
                 <p className="text-4xl font-normal text-left mb-4">Join Us</p>
                 <form className="w-full max-w-full">
                     <div className="grid grid-cols-2 gap-2">
@@ -84,6 +84,7 @@ export default function SignUp() {
                         SIGN UP</button>
 
                 </form>
+                <p className="mt-8">Already have an account? <a href="/components/LogIn.js" className="text-green-700 hover:text-green-900 font-bold">Log in.</a></p>
             </div>
         </div>
     );
