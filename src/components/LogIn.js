@@ -4,9 +4,9 @@ import foodImage from "./images/signUpPic.jpg";
 
 export default function LogIn() {
     return (
-        <div className="grid grid-cols-2 gap-2">
+        <div className="grid grid-cols-2 gap-2 overflow-hidden">
             <div>
-                <img src={foodImage} alt="foodImage" className="max-h-full object-contain"></img>
+                <img src={foodImage} alt="foodImage" className="foodPic max-h-full object-contain"></img>
             </div>
             <div className="pt-72 px-8">
                 <p className="text-4xl font-normal text-left mb-4">Welcome Back</p>
