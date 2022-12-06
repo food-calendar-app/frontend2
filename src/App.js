@@ -4,6 +4,7 @@ import './App.css';
 import Calendar from "./components/Calendar";
 import SignUp from "./components/SignUp";
 import LogIn from "./components/LogIn";
+import HomePage from "./components/HomePage";
 
 function App() {
   return (
@@ -23,9 +24,12 @@ function App() {
         </a>
       </header> */}
 
-      <Calendar />
+      
+      <HomePage />
       <SignUp />
-      <LogIn />
+      <LogIn /> 
+      <Calendar />
+      
     </div>
   );
 }
