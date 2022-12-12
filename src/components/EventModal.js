@@ -55,7 +55,7 @@ export default function EventModal() {
         <div className = "h-screen w-full fixed left-0 top-0 flex justify-center items-center">
             <form className = "bg-white rounded-lg shadow-2xl w-1/4">
                 <header className = "bg-gray-100 rounded-t-lg px-4 py-2 flex justify-between items-center">
-                    <span className = {`material-icons-outlined pt-2 cursor-pointer ${favorite ? "text-red-400" : "text-gray-400"}`} onClick = {() => setFavorite(!favorite)}>
+                    <span className = {`material-icons-outlined pt-2 cursor-pointer ${favorite ? "text-green-600" : "text-gray-400"}`} onClick = {() => setFavorite(!favorite)}>
                         favorite
                     </span>
                     <div>
@@ -80,7 +80,7 @@ export default function EventModal() {
                             name = "title" 
                             placeholder = "Add Meal Name"
                             value = {title}
-                            className = "pt-5 pb-1 border-0 text-gray-600 text-xl font-semibold w-full border-b-2 border-gray-200 focus:outline-none focus:ring-0 focus:border-blue-500"
+                            className = "pt-5 pb-1 border-0 text-gray-600 text-xl font-semibold w-full border-b-2 border-gray-200 focus:outline-none focus:ring-0 focus:border-green-700"
                             onChange = {(e) => setTitle(e.target.value)}
                         />
                         <span className = "material-icons-outlined text-gray-400">
@@ -98,7 +98,7 @@ export default function EventModal() {
                             name = "description" 
                             placeholder = "Add Ingredients"
                             value = {description}
-                            className = "pt-0 pb-1 border-0 text-gray-600 w-full border-b-2 border-gray-200 focus:outline-none focus:ring-0 focus:border-blue-500"
+                            className = "pt-0 pb-1 border-0 text-gray-600 w-full border-b-2 border-gray-200 focus:outline-none focus:ring-0 focus:border-green-700"
                             onChange = {(e) => setDescription(e.target.value)}
                         />
                         <span className = "material-icons-outlined text-gray-400">
@@ -143,7 +143,7 @@ export default function EventModal() {
                         <button
                             type = "submit"
                             onClick = {handleSubmit}
-                            className = "bg-blue-500 hover:bg-blue-600 px-6 py-2 rounded text-white"
+                            className = "bg-green-800 hover:bg-green-900 px-6 py-2 rounded text-white"
                         >
                             Save
                         </button>

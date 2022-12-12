@@ -32,9 +32,9 @@ export default function SmallCalendar() {
         const currDay = day.format(format);
         const slcDay = daySelected && daySelected.format(format);
         if (nowDay === currDay) {
-            return "bg-blue-500 rounded-full text-white";
+            return "bg-green-700 rounded-full text-white";
         } else if (currDay === slcDay) {
-            return "bg-blue-100 rounded-full text-blue-600 font-bold";
+            return "bg-green-200 rounded-full text-green-700 font-bold";
         } else {
             return "hover:bg-gray-200 hover:rounded-full";
         }

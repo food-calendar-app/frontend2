@@ -24,7 +24,8 @@ export default function SignUp() {
                                 border border-solid border-gray-300
                                 rounded
                                 m-0
-                                focus:border-blue-600 focus:outline-none" id="firstName"
+                                focus:ring-green-700
+                                focus:border-green-700 focus:outline-none" id="firstName"
                                 placeholder="First name">
                             </input>
                         </div>
@@ -40,7 +41,8 @@ export default function SignUp() {
                                 border border-solid border-gray-300
                                 rounded
                                 m-0
-                                focus:border-blue-600 focus:outline-none" id="lastName"
+                                focus:ring-green-700
+                                focus:border-green-700 focus:outline-none" id="lastName"
                                 placeholder="Last name">
                             </input>
                         </div>
@@ -57,7 +59,8 @@ export default function SignUp() {
                             border border-solid border-gray-300
                             rounded
                             m-0
-                            focus:border-blue-600 focus:outline-none" id="emailAddress"
+                            focus:ring-green-700
+                            focus:border-green-700 focus:outline-none" id="emailAddress"
                             placeholder="Email address">
                         </input></div>
                     <div className="form-group mb-6">
@@ -71,7 +74,8 @@ export default function SignUp() {
                             border border-solid border-gray-300
                             rounded
                             m-0
-                            focus:border-blue-600 focus:outline-none" id="password"
+                            focus:ring-green-700
+                            focus:border-green-700 focus:outline-none" id="password"
                             placeholder="Password"></input>
                     </div>
                     <button type="submit" className="

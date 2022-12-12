@@ -20,6 +20,22 @@ const favorites = [
 export default function FavoritesModal() {
     const { setShowFavoritesModal, daySelected, } = useContext(GlobalContext);
 
+    const selectStyles = {
+        option: (provided, state) => ({
+            ...provided,
+            textAlign: 'left',
+            backgroundColor: state.isSelected ? 'green' : '',
+            '&:hover': {
+                backgroundColor: '#e8f4ea',
+                color: 'black',
+            }
+        }),
+        control: (base, state) => ({
+            ...base,
+            border: state.isFocused ? 'green' : '',
+        })
+    };
+
     return (
         <div className = "h-screen w-full fixed left-0 top-0 flex justify-center items-center">
             <div className = "bg-white rounded-lg shadow-2xl w-1/4 flex flex-col">
@@ -51,7 +67,7 @@ export default function FavoritesModal() {
                             restaurant
                         </span>
                         <p className = "text-left1">
-                            <Select options = { favorites } />
+                            <Select options = { favorites } styles = {selectStyles} />
                         </p>
                     </div>
                 </div>
@@ -60,7 +76,7 @@ export default function FavoritesModal() {
                     <div className = "flex justify-end">
                         <button
                             type = "submit"
-                            className = "bg-blue-500 hover:bg-blue-600 px-6 py-2 rounded text-white"
+                            className = "bg-green-800 hover:bg-green-900 px-6 py-2 rounded text-white"
                         >
                             Save
                         </button>
