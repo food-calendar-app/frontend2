@@ -48,9 +48,11 @@ function Navigation(props) {
     // </div>
     <div className="px-6 pt-6 lg:px-8">
       <div>
-        {/* the logo */}
         <nav className="bg-transparent flex h-9 items-center justify-between" aria-label="Global">
           <div className="flex lg:min-w-0 lg:flex-1" aria-label="Global">
+            <span className = "material-icons-outlined text-black mx-2">
+              fastfood
+            </span>
             <NavLink to="/" className="-m-1.5 p-1.5">
               Food Calendar App
             </NavLink>
