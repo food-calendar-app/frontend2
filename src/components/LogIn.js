@@ -1,5 +1,6 @@
 import React from "react";
 import foodImage from "./images/signUpPic.jpg";
+import { Link } from 'react-router-dom';
 
 
 export default function LogIn() {
@@ -21,7 +22,7 @@ export default function LogIn() {
                             text-gray-700
                             bg-white bg-clip-padding
                             border border-solid border-gray-300
-                            rounded
+                            rounded-lg
                             m-0
                             focus:ring-green-700
                             focus:border-green-700 focus:outline-none" id="emailAddress2"
@@ -36,7 +37,7 @@ export default function LogIn() {
                             text-gray-700
                             bg-white bg-clip-padding
                             border border-solid border-gray-300
-                            rounded
+                            rounded-lg
                             m-0
                             focus:ring-green-700
                             focus:border-green-700 focus:outline-none" id="password2"
@@ -48,10 +49,10 @@ export default function LogIn() {
                         py-2.5
                         font-bold
                         text-base
-                        bg-green-800 hover:bg-green-900 text-white font-bold py-2 px-4 rounded">
+                        bg-green-800 hover:bg-green-900 text-white font-bold py-2 px-4 rounded-lg">
                         LOG IN</button>
                 </form>
-                <p className="mt-8">Don't have an account? <a href="/components/SignUp.js" className="text-green-700 hover:text-green-900 font-bold">Sign Up.</a></p>
+                <p className="mt-8">Don't have an account? <Link to={'/sign-up'} className="text-green-700 hover:text-green-900 font-bold">Sign Up.</Link></p>
             </div>
         </div>
     );
