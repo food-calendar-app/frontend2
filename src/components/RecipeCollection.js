@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import React, { useContext, useEffect, useState } from "react";
 import GlobalContext from "../context/GlobalContext";
 import CalendarHeader from "./CalendarHeader";
@@ -10,6 +9,7 @@ import WeeklyList from "./WeeklyList";
 
 export default function RecipeCollection() {
     const [ searchInput, setSearchInput ] = useState('');
+    const [ buttonText, setButtonText ] = useState('Add to Calendar');
     const [ title, setTitle ] = useState('');
     const [ description, setDescription ] = useState('');
     const [ instructions, setInstructions ] = useState('');
@@ -30,6 +30,13 @@ export default function RecipeCollection() {
         { title: "blog 11", servings: "1 servings", ingredients: "mac, cheese", instructions: "Cook the mac. Add the chicken." },
     ];
 
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setButtonText("Add To Calendar");
+        }, 500);
+        return () => clearTimeout(timer);
+    }, [ buttonText ]);
+
     const handleChange = (event) => {
         setSearchInput(event.target.value);
     };
@@ -42,6 +49,7 @@ export default function RecipeCollection() {
 
     function handleSubmit(e) {
         e.preventDefault();
+        setButtonText("Added");
         
         const calendarEvent = {
             title,
@@ -79,6 +87,11 @@ export default function RecipeCollection() {
                             {dataSearch.map(recipe => 
                                 <form 
                                     key = {recipe}
+                                    onMouseOver = {() => {
+                                        setTitle(recipe.title);
+                                        setDescription(recipe.ingredients);
+                                        setInstructions(recipe.instructions);
+                                    }}
                                     className = "border rounded-lg bg-gray-100 p-4 group hover:bg-gray-200"
                                 >
                                     <p className = "text-2xl my-3 pb-3 border border-t-0 border-x-0 border-b-2 border-green-800">{ recipe.title }</p>
@@ -89,6 +102,15 @@ export default function RecipeCollection() {
                                         <p className = "col-span-2">{ recipe.ingredients }</p>
                                         <p className = "text-left font-bold">Instructions:</p>
                                         <p className = "col-span-2 text-left">{ recipe.instructions }</p>
+                                    </div>
+                                    <div className = "flex flex-col justify-center">
+                                        <button
+                                            type = "submit"
+                                            onClick = {handleSubmit}
+                                            className = "bg-green-800 hover:bg-green-900 px-6 py-2 mt-3 rounded text-white invisible group-hover:visible"
+                                        >
+                                            { buttonText }
+                                        </button>
                                     </div>
                                 </form>    
                             )}
