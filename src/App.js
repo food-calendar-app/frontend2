@@ -7,6 +7,7 @@ import LogIn from "./components/LogIn";
 import HomePage from "./components/HomePage";
 import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom";
 import Profile from "./components/Profile";
+import RecipeCollection from "./components/RecipeCollection";
 
 const navigation = [
   { name: 'Calendar', href: '/calendar' },
@@ -84,6 +85,7 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/calendar" element={<Calendar />} />
+            <Route path="/recipes" element={<RecipeCollection />} />
             <Route path="/sign-up" element={<SignUp />} />
             <Route path="/login" element={<LogIn />} />
             <Route path="/profile" element={<Profile />} />

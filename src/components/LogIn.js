@@ -24,7 +24,8 @@ export default function LogIn() {
                             border border-solid border-gray-300
                             rounded-lg
                             m-0
-                            focus:border-blue-600 focus:outline-none" id="emailAddress2"
+                            focus:ring-green-700
+                            focus:border-green-700 focus:outline-none" id="emailAddress2"
                             placeholder="Email address">
                         </input></div>
                     <div className="form-group mb-6">
@@ -38,7 +39,8 @@ export default function LogIn() {
                             border border-solid border-gray-300
                             rounded-lg
                             m-0
-                            focus:border-blue-600 focus:outline-none" id="password2"
+                            focus:ring-green-700
+                            focus:border-green-700 focus:outline-none" id="password2"
                             placeholder="Password"></input>
                     </div>
                     <button type="submit" className="

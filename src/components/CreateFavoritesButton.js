@@ -12,7 +12,7 @@ export default function CreateFavoritesButton() {
             <span className = "material-icons-outlined text-gray-400 ml-1">
                 add
             </span>
-            <span className = "material-icons-outlined text-red-400 pl-1 pr-2">
+            <span className = "material-icons-outlined text-green-600 pl-1 pr-2">
                 favorite
             </span>
         </button>

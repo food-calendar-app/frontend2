@@ -24,47 +24,47 @@ export default function WeeklyList() {
                 </header>
                 <div className = "p-3 px-14 mb-3 max-h-96 overflow-y-auto overscroll-contain">
                     <label className = "items-center mt-3 block text-left">
-                        <input type = "checkbox" className = "form-checkbox h-5 w-5 text-black-400 rounded focus:ring-0 cursor-pointer"/>
+                        <input type = "checkbox" className = "form-checkbox h-5 w-5 text-black-400 rounded focus:ring-0 cursor-pointer checked:bg-green-800 checked:hover:bg-green-800 checked:focus:bg-green-800"/>
                         <span className = "ml-2 text-gray-700 capitalize">Carrot</span>
                     </label>
                     <label className = "items-center mt-3 block text-left">
-                        <input type = "checkbox" className = "form-checkbox h-5 w-5 text-black-400 rounded focus:ring-0 cursor-pointer"/>
+                        <input type = "checkbox" className = "form-checkbox h-5 w-5 text-black-400 rounded focus:ring-0 cursor-pointer checked:bg-green-800 checked:hover:bg-green-800 checked:focus:bg-green-800"/>
                         <span className = "ml-2 text-gray-700 capitalize">Carrot</span>
                     </label>
                     <label className = "items-center mt-3 block text-left">
-                        <input type = "checkbox" className = "form-checkbox h-5 w-5 text-black-400 rounded focus:ring-0 cursor-pointer"/>
+                        <input type = "checkbox" className = "form-checkbox h-5 w-5 text-black-400 rounded focus:ring-0 cursor-pointer checked:bg-green-800 checked:hover:bg-green-800 checked:focus:bg-green-800"/>
                         <span className = "ml-2 text-gray-700 capitalize">Carrot</span>
                     </label>
                     <label className = "items-center mt-3 block text-left">
-                        <input type = "checkbox" className = "form-checkbox h-5 w-5 text-black-400 rounded focus:ring-0 cursor-pointer"/>
+                        <input type = "checkbox" className = "form-checkbox h-5 w-5 text-black-400 rounded focus:ring-0 cursor-pointer checked:bg-green-800 checked:hover:bg-green-800 checked:focus:bg-green-800"/>
                         <span className = "ml-2 text-gray-700 capitalize">Carrot</span>
                     </label>
                     <label className = "items-center mt-3 block text-left">
-                        <input type = "checkbox" className = "form-checkbox h-5 w-5 text-black-400 rounded focus:ring-0 cursor-pointer"/>
+                        <input type = "checkbox" className = "form-checkbox h-5 w-5 text-black-400 rounded focus:ring-0 cursor-pointer checked:bg-green-800 checked:hover:bg-green-800 checked:focus:bg-green-800"/>
                         <span className = "ml-2 text-gray-700 capitalize">Carrot</span>
                     </label>
                     <label className = "items-center mt-3 block text-left">
-                        <input type = "checkbox" className = "form-checkbox h-5 w-5 text-black-400 rounded focus:ring-0 cursor-pointer"/>
+                        <input type = "checkbox" className = "form-checkbox h-5 w-5 text-black-400 rounded focus:ring-0 cursor-pointer checked:bg-green-800 checked:hover:bg-green-800 checked:focus:bg-green-800"/>
                         <span className = "ml-2 text-gray-700 capitalize">Carrot</span>
                     </label>
                     <label className = "items-center mt-3 block text-left">
-                        <input type = "checkbox" className = "form-checkbox h-5 w-5 text-black-400 rounded focus:ring-0 cursor-pointer"/>
+                        <input type = "checkbox" className = "form-checkbox h-5 w-5 text-black-400 rounded focus:ring-0 cursor-pointer checked:bg-green-800 checked:hover:bg-green-800 checked:focus:bg-green-800"/>
                         <span className = "ml-2 text-gray-700 capitalize">Carrot</span>
                     </label>
                     <label className = "items-center mt-3 block text-left">
-                        <input type = "checkbox" className = "form-checkbox h-5 w-5 text-black-400 rounded focus:ring-0 cursor-pointer"/>
+                        <input type = "checkbox" className = "form-checkbox h-5 w-5 text-black-400 rounded focus:ring-0 cursor-pointer checked:bg-green-800 checked:hover:bg-green-800 checked:focus:bg-green-800"/>
                         <span className = "ml-2 text-gray-700 capitalize">Carrot</span>
                     </label>
                     <label className = "items-center mt-3 block text-left">
-                        <input type = "checkbox" className = "form-checkbox h-5 w-5 text-black-400 rounded focus:ring-0 cursor-pointer"/>
+                        <input type = "checkbox" className = "form-checkbox h-5 w-5 text-black-400 rounded focus:ring-0 cursor-pointer checked:bg-green-800 checked:hover:bg-green-800 checked:focus:bg-green-800"/>
                         <span className = "ml-2 text-gray-700 capitalize">Carrot</span>
                     </label>
                     <label className = "items-center mt-3 block text-left">
-                        <input type = "checkbox" className = "form-checkbox h-5 w-5 text-black-400 rounded focus:ring-0 cursor-pointer"/>
+                        <input type = "checkbox" className = "form-checkbox h-5 w-5 text-black-400 rounded focus:ring-0 cursor-pointer checked:bg-green-800 checked:hover:bg-green-800 checked:focus:bg-green-800"/>
                         <span className = "ml-2 text-gray-700 capitalize">Carrot</span>
                     </label>
                     <label className = "items-center mt-3 block text-left">
-                        <input type = "checkbox" className = "form-checkbox h-5 w-5 text-black-400 rounded focus:ring-0 cursor-pointer"/>
+                        <input type = "checkbox" className = "form-checkbox h-5 w-5 text-black-400 rounded focus:ring-0 cursor-pointer checked:bg-green-800 checked:hover:bg-green-800 checked:focus:bg-green-800"/>
                         <span className = "ml-2 text-gray-700 capitalize">Carrot</span>
                     </label>
                 </div>
