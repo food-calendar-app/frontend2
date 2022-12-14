@@ -53,8 +53,8 @@ function Navigation(props) {
             <span className = "material-icons-outlined text-black mx-2">
               fastfood
             </span>
-            <NavLink to="/" className="-m-1.5 p-1.5">
-              Food Calendar App
+            <NavLink to="/" className="-m-1.5 p-1.5 font-bold">
+              Mealsy
             </NavLink>
           </div>
           <div className="hidden lg:flex lg:min-w-0 lg:flex-1 lg:justify-center lg:gap-x-12">
