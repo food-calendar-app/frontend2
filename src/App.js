@@ -46,25 +46,25 @@ function Navigation(props) {
     //     </li>
     //   </ul>
     // </div>
-    <div className="px-6 pt-6 lg:px-8">
+    <div className="px-6 pt-5 pb-2 lg:px-8">
       <div>
         <nav className="bg-transparent flex h-9 items-center justify-between" aria-label="Global">
-          <div className="flex lg:min-w-0 lg:flex-1" aria-label="Global">
-            <span className = "material-icons-outlined text-black mx-2">
+          <div className="flex lg:min-w-0 lg:flex-1 align-top" aria-label="Global">
+          <NavLink to="/"><span className = "material-icons-outlined text-black mx-2">
               fastfood
-            </span>
-            <NavLink to="/" className="-m-1.5 p-1.5 font-bold">
+            </span></NavLink>
+            <NavLink to="/" className="align-top font-bold text-gray-900 hover:text-gray-900">
               Mealsy
             </NavLink>
           </div>
-          <div className="hidden lg:flex lg:min-w-0 lg:flex-1 lg:justify-center lg:gap-x-12">
+          <div className="lg:flex lg:min-w-0 lg:flex-1 lg:justify-center lg:gap-x-12">
             {navigation.map((item) => (
               <a key={item.name} href={item.href} className="font-semibold text-gray-900 hover:text-gray-900">
                 {item.name}
               </a>
             ))}
           </div>
-          <div className="hidden lg:flex lg:min-w-0 lg:flex-1 lg:justify-end">
+          <div className="lg:flex lg:min-w-0 lg:flex-1 lg:justify-end">
             <NavLink to="/profile" className="inline-block rounded-lg px-8 ml-2 py-1.5 text-sm font-semibold leading-6 text-gray-900 shadow-sm ring-1 ring-green-800/10 hover:ring-green-900/20 hover:bg-green-800 hover:text-slate-100"
             >
               Profile
