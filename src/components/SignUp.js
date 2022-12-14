@@ -1,5 +1,6 @@
 import React from "react";
 import foodImage from "./images/signUpPic.jpg";
+import { Link } from 'react-router-dom';
 
 
 export default function SignUp() {
@@ -22,7 +23,7 @@ export default function SignUp() {
                                 text-gray-700
                                 bg-white bg-clip-padding
                                 border border-solid border-gray-300
-                                rounded
+                                rounded-lg
                                 m-0
                                 focus:border-blue-600 focus:outline-none" id="firstName"
                                 placeholder="First name">
@@ -38,7 +39,7 @@ export default function SignUp() {
                                 text-gray-700
                                 bg-white bg-clip-padding
                                 border border-solid border-gray-300
-                                rounded
+                                rounded-lg
                                 m-0
                                 focus:border-blue-600 focus:outline-none" id="lastName"
                                 placeholder="Last name">
@@ -55,7 +56,7 @@ export default function SignUp() {
                             text-gray-700
                             bg-white bg-clip-padding
                             border border-solid border-gray-300
-                            rounded
+                            rounded-lg
                             m-0
                             focus:border-blue-600 focus:outline-none" id="emailAddress"
                             placeholder="Email address">
@@ -69,7 +70,7 @@ export default function SignUp() {
                             text-gray-700
                             bg-white bg-clip-padding
                             border border-solid border-gray-300
-                            rounded
+                            rounded-lg
                             m-0
                             focus:border-blue-600 focus:outline-none" id="password"
                             placeholder="Password"></input>
@@ -80,11 +81,11 @@ export default function SignUp() {
                         py-2.5
                         font-bold
                         text-base
-                        bg-green-800 hover:bg-green-900 text-white font-bold py-2 px-4 rounded">
+                        bg-green-800 hover:bg-green-900 text-white font-bold py-2 px-4 rounded-lg">
                         SIGN UP</button>
 
                 </form>
-                <p className="mt-8">Already have an account? <a href="/components/LogIn.js" className="text-green-700 hover:text-green-900 font-bold">Log in.</a></p>
+                <p className="mt-8">Already have an account? <Link to={'/login'} className="text-green-700 hover:text-green-900 font-bold">Log in.</Link></p>
             </div>
         </div>
     );
