@@ -36,6 +36,10 @@ export default function FavoritesModal() {
         })
     };
 
+    function handleSubmit(e) {
+
+    }
+
     return (
         <div className = "h-screen w-full fixed left-0 top-0 flex justify-center items-center z-50">
             <div className = "bg-white rounded-lg shadow-2xl w-1/4 flex flex-col">
@@ -57,15 +61,19 @@ export default function FavoritesModal() {
 
                 <div className = "p-3 pr-7 pt-4 mt-3">
                     <div className = "grid grid-cols-1/5 items-end gap-y-7">
-                        <span className = "material-icons-outlined text-gray-400">
-                            schedule
-                        </span>
+                        <div className = "flex flex-col justify-center items-center">
+                            <span className = "material-icons-outlined text-gray-400">
+                                schedule
+                            </span>
+                        </div>
                         <p className = "text-left px-3">
                             { daySelected.format("ddd, MMMM DD") }
                         </p>
-                        <span className = "material-icons-outlined text-gray-400 mb-2">
-                            restaurant
-                        </span>
+                        <div className = "flex flex-col justify-center items-center">
+                            <span className = "material-icons-outlined text-gray-400 mb-1">
+                                restaurant
+                            </span>
+                        </div>
                         <p className = "text-left1">
                             <Select options = { favorites } styles = {selectStyles} />
                         </p>
@@ -76,6 +84,7 @@ export default function FavoritesModal() {
                     <div className = "flex justify-end">
                         <button
                             type = "submit"
+                            onClick = {handleSubmit}
                             className = "bg-green-800 hover:bg-green-900 px-6 py-2 rounded text-white"
                         >
                             Save
