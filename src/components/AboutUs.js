@@ -5,9 +5,9 @@ import veggie from "./images/6.png"
 
 export default function AboutUs() {
     const developer = [
-        { name: 'Mavis Ye', role: 'Frontend Engineering', span_icon: 'perm_contact_calendar' },
-        { name: 'Mahmoud Agag', role: 'Backend Engineering', span_icon: 'engineering' },
-        { name: 'Siema Alam', role: 'Frontend Engineering', span_icon: 'self_improvement' },
+        { name: 'Mavis Ye', role: 'Frontend Engineer', span_icon: 'perm_contact_calendar' },
+        { name: 'Mahmoud Agag', role: 'Backend Engineer', span_icon: 'engineering' },
+        { name: 'Siema Alam', role: 'Frontend Engineer', span_icon: 'self_improvement' },
 
     ]
 
@@ -27,7 +27,7 @@ export default function AboutUs() {
                             Our Story
                         </h2>
                         <p className="leading-loose text-xl mt-2 text-justify text-gray-600">
-                            As college students, we understand that it can be difficult to plan out meals,<br></br> or find recipes that fit
+                            As college students, we understand that it can be difficult to plan out meals<br></br> or find recipes that fit
                             specific needs. We wanted to create a space where <br></br>
                             people can plan, create, and find recipes. Users can add recipes to 
                             their <br></br> food calendar and create shopping lists to stay organized while planning<br></br>
