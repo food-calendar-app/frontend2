@@ -83,7 +83,7 @@ export default function RecipeCollection() {
                                 className = "w-1/2 mt-4 focus:ring-green-800 focus:border-green-800 focus:outline-none rounded-md"
                             />
                         </div>
-                        <div className = "grid grid-cols-4 gap-10 p-6">
+                        <div className = "grid grid-cols-2 gap-10 p-6">
                             {dataSearch.map(recipe => 
                                 <form 
                                     key = {recipe}
