@@ -1,8 +1,37 @@
-import { useContext } from "react";
+import { useContext,useState, useEffect } from "react";
 import GlobalContext from "../context/GlobalContext";
+import axios from "axios";
 
 export default function DailyList() {
-    const { setShowDailyModal } = useContext(GlobalContext);
+    const { token, setShowDailyModal } = useContext(GlobalContext);
+    const [ dailys,setDailys ] = useState([])
+
+    useEffect( () =>{
+        getData()
+    },[])
+
+    async function getData(){
+        const url = 'http://localhost:5000/api/info' 
+        const options = {
+            headers:{
+                'Content-Type': 'application/json',
+                'authorization': 'Bearer ' + token
+            }
+        }
+        const res = await axios(url,options)
+        const today = new Date()
+        const daily = res.data.info.filter( (obj) => {
+            let d = new Date(obj.date)
+            return d.getDate() == today.getDate() &&
+            d.getMonth() == today.getMonth() &&
+            d.getFullYear() == today.getFullYear()
+        })
+        let ingredients = []
+        daily.forEach(obj => {
+            ingredients = ingredients.concat(obj.ingredients)
+        });
+        setDailys(ingredients)
+    }
 
     return (
         <div className = "h-screen w-full fixed left-0 top-0 flex justify-center items-center z-50">
@@ -23,14 +52,14 @@ export default function DailyList() {
                     </div>
                 </header>
                 <div className = "p-3 px-14 mb-3 h-96 overflow-y-auto overscroll-contain">
-                    <label className = "items-center mt-3 block text-left">
-                        <input type = "checkbox" className = "form-checkbox h-5 w-5 text-black-400 rounded focus:ring-0 cursor-pointer checked:bg-green-800 checked:hover:bg-green-800 checked:focus:bg-green-800"/>
-                        <span className = "ml-2 text-gray-700 capitalize">Carrot</span>
-                    </label>
-                    <label className = "items-center mt-3 block text-left">
-                        <input type = "checkbox" className = "form-checkbox h-5 w-5 text-black-400 rounded focus:ring-0 cursor-pointer checked:bg-green-800 checked:hover:bg-green-800 checked:focus:bg-green-800"/>
-                        <span className = "ml-2 text-gray-700 capitalize">Carrot</span>
-                    </label>
+                    {dailys.map( ing => {
+                        return(
+                            <label className = "items-center mt-3 block text-left">
+                                <input type = "checkbox" className = "form-checkbox h-5 w-5 text-black-400 rounded focus:ring-0 cursor-pointer"/>
+                                <span className = "ml-2 text-gray-700 capitalize">{ing}</span>
+                            </label>
+                        )
+                    })}
                 </div>
             </div>
         </div>

@@ -1,14 +1,53 @@
-import React from "react";
+import React, { useState, useContext, useEffect } from "react";
+import GlobalContext from "../context/GlobalContext";
+import axios from "axios";
+import {useNavigate} from 'react-router-dom';
 
 export default function Profile() {
-    const nutrition = [
-        { name: 'Calories', statistic: '2340', spanner: 'egg_alt' },
-        { name: 'Proteins', statistic: '30 g', spanner: 'kebab_dining' },
-        { name: 'Potassium', statistic: '4 g', spanner: 'soup_kitchen' },
-        { name: 'Carbohydrates', statistic: '23 g', spanner: 'local_pizza' },
-        { name: 'Sugar', statistic: '35 g', spanner: 'icecream' },
-    ]
+    const { token, user, savedEvents } = useContext(GlobalContext)
+    const navigate = useNavigate();
+    const [ details, setDetails] = useState([
+        { name: 'Calories', statistic: 0, spanner: 'egg_alt' },
+        { name: 'Proteins', statistic: 0, spanner: 'kebab_dining' },
+        { name: 'Potassium', statistic: 0, spanner: 'soup_kitchen' },
+        { name: 'Sodium', statistic: 0, spanner: 'local_pizza' },
+        { name: 'Sugar', statistic: 0, spanner: 'icecream' },
+    ])
+    useEffect( () =>{
+        console.log(user)
+        if (token === null){
+            navigate('/login')
+        }else{
+            getProfile()
+        }
+    },[])
 
+    async function getProfile(){
+        const url = 'http://localhost:5000/api/api/nutrition' 
+        const options = {
+            headers:{
+                'Content-Type': 'application/json',
+                'authorization': 'Bearer ' + token
+            }
+        }
+        const res = await axios.get(url,options)
+        
+        if (res.data.length > 0){
+            let curr =[{ name: 'Calories', statistic: 0, spanner: 'egg_alt' },
+                { name: 'Proteins', statistic: 0, spanner: 'kebab_dining' },
+                { name: 'Potassium', statistic: 0, spanner: 'soup_kitchen' },
+                { name: 'Sodium', statistic: 0, spanner: 'local_pizza' },
+                { name: 'Sugar', statistic: 0, spanner: 'icecream' }]
+            res.data.forEach( obj => {
+                curr[0].statistic += obj.calories
+                curr[1].statistic += obj.protein_g
+                curr[3].statistic += obj.sodium_mg
+                curr[2].statistic += obj.potassium_mg
+                curr[4].statistic += obj.sugar_g
+            })
+            setDetails(curr)
+        }
+    }
     return (
         <div className="relative sm:grid sm:grid-rows-1 sm:grid-flow-col sm:gap-3 bg-white max-h-screen mx-8 my-10">
             <div className="rounded-md bg-transparent h-2/3 ml-0.5 sm:ml-4 mr-0.5 my-5 row-span-2 col-span-1 drop-shadow-lg border-t">
@@ -18,7 +57,7 @@ export default function Profile() {
                             <img className="max-w-72 max-h-72 sm:w-72 sm:h-72 rounded-full mx-auto" src="https://images.unsplash.com/photo-1638720772346-b745bcd72f5f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1177&q=80" alt="John Doe">
                             </img></div>
                         <div className="p-2">
-                            <h4 className="text-center text-2xl text-gray-900 font-medium leading-8">Cardi Brie</h4>
+                            {user && <h4 className="text-center text-2xl text-gray-900 font-medium leading-8">{user.firstname} {user.lastname}</h4>}
                             <div className="text-center text-gray-400 text-xs font-semibold">
                                 <p>Home Chef</p>
                             </div>
@@ -35,7 +74,7 @@ export default function Profile() {
                         <div>
                             <p className="text-sm text-gray-500">Recipes Saved</p>
 
-                            <p className="text-2xl font-medium text-gray-900">23</p>
+                            <p className="text-2xl font-medium text-gray-900">{savedEvents.length}</p>
                         </div>
                     </div>
                 </article>
@@ -49,7 +88,7 @@ export default function Profile() {
                 <p className="text-lg">Cholesterol:</p>
                 <p className="text-lg">Fiber:</p>
                 <p className="text-lg">Sugar:</p> */}
-                {nutrition.map((item) => (
+                {details.map((item) => (
                     <article className="flex items-end justify-between rounded-lg border border-gray-100 bg-white p-6 mb-2">
                         <div className="flex items-center gap-4">
                             <span className="rounded-full bg-gray-100 p-2 text-gray-600 block">
@@ -60,7 +99,7 @@ export default function Profile() {
                             <div>
                                 <p className="text-sm text-gray-500">{item.name}</p>
 
-                                <p className="text-2xl font-medium text-gray-900">{item.statistic}</p>
+                                <p className="text-2xl font-medium text-gray-900">{item.statistic.toFixed(2)}</p>
                             </div>
                         </div>
                     </article>

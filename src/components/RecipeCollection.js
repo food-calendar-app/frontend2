@@ -6,6 +6,8 @@ import EventModal from "./EventModal";
 import FavoritesModal from "./FavoritesModal";
 import Sidebar from "./Sidebar";
 import WeeklyList from "./WeeklyList";
+import {useNavigate} from 'react-router-dom';
+import axios from 'axios'
 
 export default function RecipeCollection() {
     const [ searchInput, setSearchInput ] = useState('');
@@ -14,9 +16,8 @@ export default function RecipeCollection() {
     const [ description, setDescription ] = useState('');
     const [ instructions, setInstructions ] = useState('');
     const { showEventModal, showDailyModal, showWeeklyModal, showFavoritesModal } = useContext(GlobalContext);
-    const { daySelected, dispatchCalEvent } = useContext(GlobalContext);
-
-    const recipes = [
+    const { token, daySelected, dispatchCalEvent } = useContext(GlobalContext);
+    const [recipes,setRecipes] = useState([
         {
             title: "Stracciatella (Italian Wedding Soup)",
             ingredients: "3 1/2 c Chicken broth; homemade|1 lb Fresh spinach; wash/trim/chop|1 Egg|1 c Grated parmesan cheese; --or--|1 c Romano cheese; freshly grated|Salt and pepper; to taste",
@@ -41,7 +42,14 @@ export default function RecipeCollection() {
             servings: "4 - 6 servin",
             instructions: "Bring chicken stock to a boil add the chopped carrot,celery and onion and lower heat. Combine ground meat or vegieburger, egg, and parsely, the consistancy of the mixture is kinda loose. Drop in small pieces of the meat mixture, not much larger than a Tablespoon. (making tiny meatballs.) Turn up the heat and bring to a boil,5 -7 minutes, it is ready when the little meatballs float to the surface."
           },
-    ];
+    ])
+
+    const navigate = useNavigate();
+    useEffect( () => {
+        if (token === null){
+            navigate('/login')
+        }
+    },[])
 
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -60,21 +68,43 @@ export default function RecipeCollection() {
         )
     });
 
-    function handleSearch(e) {
-
+    async function handleSearch(e) {
+        e.preventDefault();
+        const url = `http://localhost:5000/api/api/recipe?name=${searchInput}` 
+        const options = {
+            headers:{
+                'Content-Type': 'application/json',
+                'authorization': 'Bearer ' + token
+            }
+        }
+        const res = await axios.get(url,options)
+        setRecipes(res.data)
     }
 
-    function handleSubmit(e) {
+    async function handleSubmit(e) {
         e.preventDefault();
         setButtonText("Added");
-        
+        const body = {
+            name:title,
+            ingredients:description.split('|'),
+            instructions,
+            date:new Date(daySelected),
+            color:"indigo"}
+        const options = {
+            headers:{
+                'Content-Type': 'application/json',
+                'authorization': 'Bearer ' + token
+            }
+        }
+        const url = 'http://localhost:5000/api/info'
+        const res = await axios.post(url,body,options)
         const calendarEvent = {
             title,
             description,
             instructions,
             label: "indigo",
             day: daySelected.valueOf(),
-            id: Date.now(),
+            id: res.data.info._id,
         };
         dispatchCalEvent({ type: "push", payload: calendarEvent });
     }

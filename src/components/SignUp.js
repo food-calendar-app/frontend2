@@ -1,9 +1,31 @@
-import React from "react";
+import React, {useContext} from "react";
 import foodImage from "./images/signupfood.png";
-import { Link } from 'react-router-dom';
-
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import GlobalContext from "../context/GlobalContext";
 
 export default function SignUp() {
+    const { setToken,setUser } = useContext(GlobalContext)
+
+    const navigate = useNavigate();
+
+    async function handleSubmit(event){
+        event.preventDefault()
+        const firstname = document.getElementById('firstName').value
+        const lastname = document.getElementById('lastName').value
+        const email = document.getElementById('emailAddress').value
+        const password = document.getElementById('password').value
+        if (!password || !email || !firstname || !lastname){
+            return
+        }
+        const body = {"firstname":firstname,"lastname":lastname,"email":email,"password":password}
+        const res = await axios.post('http://localhost:5000/api/auth/register',body)
+        if (res.data){
+            setToken(res.data.token)
+            setUser(res.data.user)
+            navigate('/')
+        }
+    }
     return (
         <div className="relative grid sm:grid-cols-2 sm:gap-2 sm:max-h-screen">
             <div className="flex justify-center h-min m-3 sm:h-full sm:w-full sm:max-h-screen sm:ml-24 sm:mt-16 sm:mr-2">
@@ -11,7 +33,7 @@ export default function SignUp() {
             </div>
             <div className="sm:mt-60 sm:mr-24 px-8 pb-8 max-h-screen">
                 <p className="text-4xl font-normal text-left mb-4">Join Us</p>
-                <form className="w-full max-w-full">
+                <form onSubmit={handleSubmit} className="w-full max-w-full">
                     <div className="grid grid-cols-2 gap-2">
                         <div className="form-group mb-6">
                             <input type="text" className="form-control
