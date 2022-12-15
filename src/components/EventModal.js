@@ -56,7 +56,7 @@ export default function EventModal() {
     }
 
     return (
-        <div className = "h-screen w-full fixed left-0 top-0 flex justify-center items-center">
+        <div className = "h-screen w-full fixed left-0 top-0 flex justify-center items-center z-50">
             <form className = "bg-white rounded-lg shadow-2xl w-1/4">
                 <header className = "bg-gray-100 rounded-t-lg px-4 py-2 flex justify-between items-center">
                     <span className = {`material-icons-outlined pt-2 cursor-pointer ${favorite ? "text-green-600" : "text-gray-400"}`} onClick = {() => setFavorite(!favorite)}>
