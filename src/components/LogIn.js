@@ -51,7 +51,7 @@ export default function LogIn() {
                         bg-green-800 hover:bg-green-900 text-white font-bold rounded-lg">
                         LOG IN</button>
                 </form>
-                <p className="mt-8">Don't have an account? <Link to={'/sign-up'} className="text-green-700 hover:text-green-900 font-bold">Sign Up.</Link></p>
+                <p className="mt-8">Don't have an account? <Link to={'/sign-up'} className="text-red-600 hover:text-green-900 font-bold">Sign Up.</Link></p>
             </div>
         </div>
     );

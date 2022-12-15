@@ -9,7 +9,7 @@ export default function SignUp() {
             <div className="ml-24 mt-16 mr-2">
             <img src={foodImage} alt="foodImage" className="h-4/5 ml-2 mt-10"></img>
             </div>
-            <div className="pt-56 px-8">
+            <div className="pt-52 px-8">
                 <p className="text-4xl font-normal text-left mb-4">Join Us</p>
                 <form className="w-full max-w-full">
                     <div className="grid grid-cols-2 gap-2">
@@ -89,7 +89,7 @@ export default function SignUp() {
                         SIGN UP</button>
 
                 </form>
-                <p className="mt-8">Already have an account? <Link to={'/login'} className="text-green-700 hover:text-green-900 font-bold">Log in.</Link></p>
+                <p className="mt-8">Already have an account? <Link to={'/login'} className="text-red-600 hover:text-green-900 font-bold">Log in.</Link></p>
             </div>
         </div>
     );

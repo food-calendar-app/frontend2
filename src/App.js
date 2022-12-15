@@ -8,6 +8,7 @@ import HomePage from "./components/HomePage";
 import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom";
 import Profile from "./components/Profile";
 import RecipeCollection from "./components/RecipeCollection";
+import AboutUs from "./components/AboutUs";
 
 const navigation = [
   { name: 'Calendar', href: '/calendar' },
@@ -89,6 +90,7 @@ function App() {
             <Route path="/calendar" element={<Calendar />} />
             <Route path="/recipes" element={<RecipeCollection />} />
             <Route path="/sign-up" element={<SignUp />} />
+            <Route path="/aboutus" element={<AboutUs />} />
             <Route path="/login" element={<LogIn />} />
             <Route path="/profile" element={<Profile />} />
           </Routes>

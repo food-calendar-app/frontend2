@@ -1,6 +1,14 @@
 import React from "react";
 
 export default function Profile() {
+    const nutrition = [
+        { name: 'Calories', statistic: '2340', spanner: 'egg_alt' },
+        { name: 'Proteins', statistic: '30 g', spanner: 'kebab_dining' },
+        { name: 'Potassium', statistic: '4 g', spanner: 'soup_kitchen' },
+        { name: 'Carbohydrates', statistic: '23 g', spanner: 'local_pizza' },
+        { name: 'Sugar', statistic: '35 g', spanner: 'icecream' },
+    ]
+
     return (
         <div className="relative grid grid-rows-1 grid-flow-col gap-3 bg-white max-h-screen mx-8 mt-20">
             <div className="rounded-md bg-transparent h-2/3 ml-4 mr-0.5 my-5 row-span-2 col-span-1 drop-shadow-lg border-t">
@@ -16,7 +24,7 @@ export default function Profile() {
                             </div>
                         </div>
                     </div></div>
-                    <div></div>
+                <div></div>
                 <article className="flex items-center justify-between rounded-lg border border-gray-100 bg-white p-6 mb-2 mt-1">
                     <div className="flex items-center gap-4">
                         <span className="hidden rounded-full bg-gray-100 p-2 text-gray-600 sm:block">
@@ -43,80 +51,22 @@ export default function Profile() {
                 <p className="text-lg">Cholesterol:</p>
                 <p className="text-lg">Fiber:</p>
                 <p className="text-lg">Sugar:</p> */}
-                <article className="flex items-end justify-between rounded-lg border border-gray-100 bg-white p-6 mb-2">
-                    <div className="flex items-center gap-4">
-                        <span className="hidden rounded-full bg-gray-100 p-2 text-gray-600 sm:block">
-                            <span className="material-icons-outlined text-black mx-2 mt-2">
-                                egg_alt
+                {nutrition.map((item) => (
+                    <article className="flex items-end justify-between rounded-lg border border-gray-100 bg-white p-6 mb-2">
+                        <div className="flex items-center gap-4">
+                            <span className="hidden rounded-full bg-gray-100 p-2 text-gray-600 sm:block">
+                                <span className="material-icons-outlined text-black mx-2 mt-2">
+                                    {item.spanner}
+                                </span>
                             </span>
-                        </span>
-                        <div>
-                            <p className="text-sm text-gray-500">Calories</p>
+                            <div>
+                                <p className="text-sm text-gray-500">{item.name}</p>
 
-                            <p className="text-2xl font-medium text-gray-900">2340</p>
+                                <p className="text-2xl font-medium text-gray-900">{item.statistic}</p>
+                            </div>
                         </div>
-                    </div>
-                </article>
-                <article className="flex items-end justify-between rounded-lg border border-gray-100 bg-white p-6 mb-2">
-                    <div className="flex items-center gap-4">
-                        <span className="hidden rounded-full bg-gray-100 p-2 text-gray-600 sm:block">
-                            <span className="material-icons-outlined text-black mx-2 mt-2">
-                                kebab_dining
-                            </span>
-                        </span>
-
-                        <div>
-                            <p className="text-sm text-gray-500">Proteins</p>
-
-                            <p className="text-2xl font-medium text-gray-900">15 g</p>
-                        </div>
-                    </div>
-                </article>
-                <article className="flex items-end justify-between rounded-lg border border-gray-100 bg-white p-6 mb-2">
-                    <div className="flex items-center gap-4">
-                        <span className="hidden rounded-full bg-gray-100 p-2 text-gray-600 sm:block">
-                            <span className="material-icons-outlined text-black mx-2 mt-2">
-                                soup_kitchen
-                            </span>
-                        </span>
-
-                        <div>
-                            <p className="text-sm text-gray-500">Potassium</p>
-
-                            <p className="text-2xl font-medium text-gray-900">781 mg</p>
-                        </div>
-                    </div>
-                </article>
-                <article className="flex items-end justify-between rounded-lg border border-gray-100 bg-white p-6 mb-2">
-                    <div className="flex items-center gap-4">
-                        <span className="hidden rounded-full bg-gray-100 p-2 text-gray-600 sm:block">
-                            <span className="material-icons-outlined text-black mx-2 mt-2">
-                                local_pizza
-                            </span>
-                        </span>
-
-                        <div>
-                            <p className="text-sm text-gray-500">Carbohydrates</p>
-
-                            <p className="text-2xl font-medium text-gray-900">717 g</p>
-                        </div>
-                    </div>
-                </article>
-                <article className="flex items-end justify-between rounded-lg border border-gray-100 bg-white p-6 mb-2">
-                    <div className="flex items-center gap-4">
-                        <span className="hidden rounded-full bg-gray-100 p-2 text-gray-600 sm:block">
-                            <span className="material-icons-outlined text-black mx-2 mt-2">
-                                icecream
-                            </span>
-                        </span>
-
-                        <div>
-                            <p className="text-sm text-gray-500">Sugar</p>
-
-                            <p className="text-2xl font-medium text-gray-900">32 g</p>
-                        </div>
-                    </div>
-                </article>
+                    </article>
+                ))}
             </div>
         </div>
     );
