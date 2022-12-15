@@ -42,7 +42,7 @@ export default function FavoritesModal() {
 
     return (
         <div className = "h-screen w-full fixed left-0 top-0 flex justify-center items-center z-50">
-            <div className = "bg-white rounded-lg shadow-2xl w-1/4 flex flex-col">
+            <div className = "bg-white rounded-lg shadow-2xl 2xl:w-1/4 flex flex-col">
                 <header className = "bg-gray-100 rounded-t-lg px-4 py-2 flex justify-between items-center">
                     <span className = "material-icons-outlined text-gray-400 pt-1">
                         favorite

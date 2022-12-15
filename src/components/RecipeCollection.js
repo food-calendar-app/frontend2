@@ -88,8 +88,10 @@ export default function RecipeCollection() {
 
             <div className = "h-screen flex flex-col">
                 <CalendarHeader />
-                <div className = "flex flex-1">
-                    <Sidebar />
+                <div className = "flex flex-col flex-1 md:flex-row">
+                    <div classname = "shrink-0">
+                        <Sidebar />
+                    </div>
                     <div className = "flex flex-col w-full border-t">
                         <form className = "flex justify-center items-center w-full">
                             <input 
@@ -104,10 +106,15 @@ export default function RecipeCollection() {
                                 onClick = {handleSearch}
                                 className = "bg-green-800 hover:bg-green-900 px-6 py-2 mt-3 rounded text-white"
                             >
-                                Search
+                                <span className = "hidden sm:block">
+                                    Search
+                                </span>
+                                <span className = "material-icons-outlined block sm:hidden">
+                                    search
+                                </span>
                             </button>
                         </form>
-                        <div className = "grid grid-cols-2 gap-10 p-6">
+                        <div className = "grid grid-cols-1 gap-10 p-6 xl:grid-cols-2">
                             {dataSearch.map(recipe => 
                                 <form 
                                     key = {recipe}
@@ -116,15 +123,15 @@ export default function RecipeCollection() {
                                         setDescription(recipe.ingredients);
                                         setInstructions(recipe.instructions);
                                     }}
-                                    className = "border rounded-lg bg-gray-100 p-4 group hover:bg-gray-200 max-h-96 overflow-auto drop-shadow-lg"
+                                    className = "border rounded-lg bg-gray-100 p-4 group hover:bg-gray-200 max-h-64 md:max-h-72 xl:max-h-80 2xl:max-h-96 overflow-auto drop-shadow-lg text-sm sm:text-sm lg:text-md 2xl:text-base"
                                 >
                                     <div className = "flex justify-between mb-3 border border-t-0 border-x-0 border-b-2 border-green-800">
-                                        <p className = "text-2xl my-3">{ recipe.title }</p>
+                                        <p className = "text-lg sm:text-xl 2xl:text-2xl my-3">{ recipe.title }</p>
                                         <div className = "flex flex-col justify-center">
                                             <button
                                                 type = "submit"
                                                 onClick = {handleSubmit}
-                                                className = "bg-green-800 hover:bg-green-900 px-6 py-2 mb-3 rounded text-white invisible group-hover:visible"
+                                                className = "bg-green-800 hover:bg-green-900 px-6 py-2 mb-3 rounded text-white hidden group-hover:block"
                                             >
                                                 { buttonText }
                                             </button>
