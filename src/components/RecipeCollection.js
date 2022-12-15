@@ -115,6 +115,7 @@ export default function RecipeCollection() {
                             </button>
                         </form>
                         <div className = "grid grid-cols-1 gap-10 p-6 xl:grid-cols-2">
+
                             {dataSearch.map(recipe => 
                                 <form 
                                     key = {recipe}
