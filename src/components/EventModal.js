@@ -56,10 +56,10 @@ export default function EventModal() {
     }
 
     return (
-        <div className = "h-screen w-full fixed left-0 top-0 flex justify-center items-center">
-            <form className = "bg-white rounded-lg shadow-2xl w-1/4">
+        <div className = "h-screen w-full fixed left-0 top-0 flex justify-center items-center z-50">
+            <form className = "bg-white rounded-lg shadow-2xl 2xl:w-1/4">
                 <header className = "bg-gray-100 rounded-t-lg px-4 py-2 flex justify-between items-center">
-                    <span className = {`material-icons-outlined pt-2 cursor-pointer ${favorite ? "text-green-600" : "text-gray-400"}`} onClick = {() => setFavorite(!favorite)}>
+                    <span className = {`material-icons-outlined pt-2 cursor-pointer ${favorite ? "text-red-600" : "text-gray-400"}`} onClick = {() => setFavorite(!favorite)}>
                         favorite
                     </span>
                     <div>
@@ -100,13 +100,13 @@ export default function EventModal() {
                                 storefront
                             </span>
                         </div>
-                        <input 
+                        <textarea
                             required
                             type = "text" 
                             name = "description" 
                             placeholder = "Add Ingredients"
                             value = {description}
-                            className = "pt-0 pb-1 border-0 text-gray-600 w-full border-b-2 border-gray-200 focus:outline-none focus:ring-0 focus:border-green-700"
+                            className = "pt-0 pb-1 border-0 text-gray-600 w-full border-b-2 border-gray-200 focus:outline-none focus:ring-0 focus:border-green-700 h-16 max-h-32 overscroll-contain"
                             onChange = {(e) => setDescription(e.target.value)}
                         />
                         <div className = "flex flex-col justify-center items-center">
@@ -114,13 +114,13 @@ export default function EventModal() {
                                 description
                             </span>
                         </div>
-                        <input 
+                        <textarea
                             required
                             type = "text" 
                             name = "instructions" 
                             placeholder = "Add Instructions"
                             value = {instructions}
-                            className = "pt-0 pb-1 border-0 text-gray-600 w-full border-b-2 border-gray-200 focus:outline-none focus:ring-0 focus:border-green-700"
+                            className = "pt-0 pb-1 border-0 text-gray-600 w-full border-b-2 border-gray-200 focus:outline-none focus:ring-0 focus:border-green-700 h-28 max-h-48 overscroll-contain"
                             onChange = {(e) => setInstructions(e.target.value)}
                         />
                         <div className = "flex flex-col justify-center items-center">

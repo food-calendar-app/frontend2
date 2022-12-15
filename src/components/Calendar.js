@@ -26,7 +26,7 @@ export default function Calendar() {
 
             <div className = "h-screen flex flex-col">
                 <CalendarHeader />
-                <div className = "flex flex-1">
+                <div className = "flex flex-col flex-1 md:flex-row">
                     <Sidebar />
                     <Month month = {currenMonth} />
                 </div>

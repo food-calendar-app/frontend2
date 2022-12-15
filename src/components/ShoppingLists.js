@@ -5,7 +5,7 @@ export default function ShoppingLists() {
     const { setShowDailyModal, setShowWeeklyModal } = useContext(GlobalContext);
 
     return (
-        <div className = "mt-3">
+        <div className = "mt-3 mx-3 shrink-0 md:mx-0">
             <p className = "text-gray-500 font-bold text-left">Shopping Lists</p>
             <button
                 onClick = {() => setShowDailyModal(true)}
