@@ -15,7 +15,7 @@ NOTE: A large number of lines were added per commit. Please check each individua
         - database tables
         - forms
         - RESTful API
-        - authenticaation
+        - authentication
         - error handling
     - hosted site
 - [Siema Alam](https://github.com/siemaaa)
