@@ -7,14 +7,20 @@ import CreateFavoritesButton from "./CreateFavoritesButton";
 
 export default function Sidebar() {
     return (
-        <aside className = "border p-5 w-64">
-            <div className = "flex flex-row">
-                <CreateEventButton />
-                <CreateFavoritesButton />
+        <aside className = "flex p-5 border-t w-full overflow-auto md:h-screen md:w-64 md:border md:flex-col">
+            <div className = "flex flex-col shrink-0 mx-1 md:mx-0">
+                <div className = "flex">
+                    <CreateEventButton />
+                    <CreateFavoritesButton />
+                </div>
+                <div className = "shrink-0">
+                    <SmallCalendar  />
+                </div>
             </div>
-            <SmallCalendar  />
-            <ShoppingLists />
-            <Labels />
+            <div className = "flex flex-col shrink-0 mx-1 md:mx-0 sm:flex-row md:flex-col">
+                <ShoppingLists />
+                <Labels />
+            </div>
         </aside>
     );
 }

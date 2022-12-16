@@ -1,24 +1,60 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import GlobalContext from "../context/GlobalContext";
 import Select from "react-select";
-
-const favorites = [
-    { label: 'Mac and Cheese', value: 'mac and cheese' },
-    { label: 'Penne Alla Vodka', value: 'penne alla vodka' },
-    { label: 'Cereal', value: 'cereal' },
-    { label: 'Oreo Cake', value: 'oreo cake' },
-    { label: 'Mashed Potato', value: 'mashed potato' },
-    { label: 'Ravioli', value: 'ravioli' },
-    { label: 'Mac and Cheese1', value: 'mac and cheese1' },
-    { label: 'Penne Alla Vodka1', value: 'penne alla vodka1' },
-    { label: 'Cereal1', value: 'cereal1' },
-    { label: 'Oreo Cake1', value: 'oreo cake1' },
-    { label: 'Mashed Potato1', value: 'mashed potato1' },
-    { label: 'Ravioli1', value: 'ravioli1' },
-]
+import axios from 'axios'
 
 export default function FavoritesModal() {
-    const { setShowFavoritesModal, daySelected, } = useContext(GlobalContext);
+    const { token, setShowFavoritesModal, daySelected, } = useContext(GlobalContext);
+
+    const [favorites,setFavorites] = useState([])
+    const [title,setTitle] = useState('')
+    useEffect( () => {
+        getFavorites()
+    },[])
+
+    async function getFavorites(){
+        const url = 'http://localhost:5000/api/favorite'
+        const options = {
+            headers:{
+                'Content-Type': 'text/plain;charset=utf-8',
+                'authorization': 'Bearer ' + token
+            }
+        }
+        const res = await axios.get(url,options)
+        const favs = res.data.map((ele) =>{
+            return {label:ele.name,value:ele.name,_id:ele._id}
+        })
+        console.log(favs)
+        setFavorites(favs)
+    }
+
+    function handleChange(selectedOption){
+        setTitle(selectedOption)
+    }
+
+    async function saveInformation(){
+        let url = `http://localhost:5000/api/favorite/${title._id}`
+        const options = {
+            headers:{
+                'Content-Type': 'application/json',
+                'authorization': 'Bearer ' + token
+            }
+        }
+        let res = await axios.get(url,options)
+        console.log(res.data)
+        const name = title.label
+        const ingredients = res.data.ingredients
+        const date = new Date(daySelected)
+        const body = {
+            name,
+            ingredients,
+            date,
+            color:'indigo'
+        } 
+        url = 'http://localhost:5000/api/info'
+        res = await axios.post(url,body,options)
+        setShowFavoritesModal(false)
+    }
 
     const selectStyles = {
         option: (provided, state) => ({
@@ -37,8 +73,8 @@ export default function FavoritesModal() {
     };
 
     return (
-        <div className = "h-screen w-full fixed left-0 top-0 flex justify-center items-center">
-            <div className = "bg-white rounded-lg shadow-2xl w-1/4 flex flex-col">
+        <div className = "h-screen w-full fixed left-0 top-0 flex justify-center items-center z-50">
+            <div className = "bg-white rounded-lg shadow-2xl 2xl:w-1/4 flex flex-col">
                 <header className = "bg-gray-100 rounded-t-lg px-4 py-2 flex justify-between items-center">
                     <span className = "material-icons-outlined text-gray-400 pt-1">
                         favorite
@@ -57,17 +93,21 @@ export default function FavoritesModal() {
 
                 <div className = "p-3 pr-7 pt-4 mt-3">
                     <div className = "grid grid-cols-1/5 items-end gap-y-7">
-                        <span className = "material-icons-outlined text-gray-400">
-                            schedule
-                        </span>
+                        <div className = "flex flex-col justify-center items-center">
+                            <span className = "material-icons-outlined text-gray-400">
+                                schedule
+                            </span>
+                        </div>
                         <p className = "text-left px-3">
                             { daySelected.format("ddd, MMMM DD") }
                         </p>
-                        <span className = "material-icons-outlined text-gray-400 mb-2">
-                            restaurant
-                        </span>
+                        <div className = "flex flex-col justify-center items-center">
+                            <span className = "material-icons-outlined text-gray-400 mb-1">
+                                restaurant
+                            </span>
+                        </div>
                         <p className = "text-left1">
-                            <Select options = { favorites } styles = {selectStyles} />
+                            <Select onChange={handleChange} options = { favorites } styles = {selectStyles} />
                         </p>
                     </div>
                 </div>
@@ -76,6 +116,7 @@ export default function FavoritesModal() {
                     <div className = "flex justify-end">
                         <button
                             type = "submit"
+                            onClick = {saveInformation}
                             className = "bg-green-800 hover:bg-green-900 px-6 py-2 rounded text-white"
                         >
                             Save

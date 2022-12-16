@@ -1,17 +1,36 @@
-import React from "react";
+import React,{useContext} from "react";
 import foodImage from "./images/loginfood.png";
-import { Link } from 'react-router-dom';
-
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import GlobalContext from "../context/GlobalContext";
 
 export default function LogIn() {
+    const { setToken,setUser } = useContext(GlobalContext)
+    const navigate = useNavigate();
+
+    async function handleSubmit(event){
+        event.preventDefault()
+        const email = document.getElementById('emailAddress2').value
+        const password = document.getElementById('password2').value
+        if (!password || !email){
+            return
+        }
+        const body = {"email":email,"password":password}
+        const res = await axios.post('http://localhost:5000/api/auth/login',body)
+        if (res){
+            setToken(res.data.token)
+            setUser(res.data.user)
+            navigate('/')
+        }
+    }
     return (
-        <div className="relative grid grid-cols-2 gap-2 max-h-screen">
-            <div className="ml-24 mt-16 mr-2">
-                <img src={foodImage} alt="foodImage" className="h-4/5 ml-2 mt-10"></img>
+        <div className="relative grid sm:grid-cols-2 sm:gap-2 sm:max-h-screen">
+            <div className="flex justify-center h-min m-3 sm:h-full sm:w-full sm:max-h-screen sm:ml-24 sm:mt-16 sm:mr-2">
+                <img src={foodImage} alt="foodImage" className="h-4/5 sm:ml-2 sm:mt-10 sm:mr-14"></img>
             </div>
-            <div className="mt-60 px-8 max-h-screen">
+            <div className="sm:mt-60 sm:mr-24 px-8 pb-8 max-h-screen">
                 <p className="text-4xl font-normal text-left mb-4">Welcome Back</p>
-                <form className="w-full max-w-full">
+                <form onSubmit={handleSubmit} className="w-full max-w-full">
                     <div className="form-group mb-6">
                         <input type="email" className="form-control block
                             w-full

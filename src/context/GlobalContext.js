@@ -23,6 +23,10 @@ const GlobalContext = React.createContext({
     setShowWeeklyModal: () => {},
     showFavoritesModal: false,
     setShowFavoritesModal: () => {},
+    user : null,
+    setUser : () => {},
+    token : null,
+    setToken : () => {},
 });
 
 export default GlobalContext;

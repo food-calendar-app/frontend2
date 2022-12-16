@@ -12,18 +12,22 @@ function savedEventsReducer(state, { type, payload }) {
             );
         case "delete":
             return state.filter((evt) => evt.id !== payload.id);
+        case "reset":
+            return []
         default:
             throw new Error();
     }
 }
 
-function initEvents() {
-    const storageEvents = localStorage.getItem("savedEvents");
-    const parsedEvents = storageEvents ? JSON.parse(storageEvents) : [];
-    return parsedEvents;
-}
+// function initEvents() {
+//     const storageEvents = localStorage.getItem("savedEvents");
+//     const parsedEvents = storageEvents ? JSON.parse(storageEvents) : [];
+//     return parsedEvents;
+// }
 
 export default function ContextWrapper(props) {
+    const [ user, setUser] = useState(null)
+    const [ token, setToken] = useState(null)
     const [ monthIndex, setMonthIndex ] = useState(dayjs().month());
     const [ smallCalendarMonth, setSmallCalendarMonth ] = useState(null);
     const [ daySelected, setDaySelected ] = useState(dayjs());
@@ -36,7 +40,7 @@ export default function ContextWrapper(props) {
     const [ savedEvents, dispatchCalEvent ] = useReducer(
         savedEventsReducer,
         [],
-        initEvents
+        // initEvents
     );
 
     const filteredEvents = useMemo(() => {
@@ -48,9 +52,9 @@ export default function ContextWrapper(props) {
         );
     }, [savedEvents, labels]);
 
-    useEffect(() => {
-        localStorage.setItem("savedEvents", JSON.stringify(savedEvents));
-    }, [savedEvents]);
+    // useEffect(() => {
+    //     localStorage.setItem("savedEvents", JSON.stringify(savedEvents));
+    // }, [savedEvents]);
 
     useEffect(() => {
         setLabels((prevLabels) => {
@@ -111,6 +115,10 @@ export default function ContextWrapper(props) {
                 setShowWeeklyModal,
                 showFavoritesModal,
                 setShowFavoritesModal,
+                token,
+                setToken,
+                user,
+                setUser,
             }}
         >
             { props.children }

@@ -7,7 +7,7 @@ export default function CreateEventButton() {
     return (
         <button
             onClick = {() => setShowEventModal(true)}
-            className = "border p-2 rounded-full flex items-center shadow-md hover:shadow-lg mr-3"
+            className = "border h-10 p-2 mb-0 rounded-full flex items-center shadow-md hover:shadow-lg mr-3"
         >
             <span className = "material-icons-outlined text-gray-400 ml-2">
                 add
