@@ -53,3 +53,5 @@ NOTE: A large number of lines were added per commit. Please check each individua
     `npm install && npm start`
 
 7. Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+
+## To access the backend, visit [this repository](https://github.com/food-calendar-app/backend).
