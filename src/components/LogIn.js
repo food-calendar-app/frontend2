@@ -25,7 +25,7 @@ export default function LogIn() {
                             m-0
                             focus:ring-green-700
                             focus:border-green-700 focus:outline-none" id="emailAddress2"
-                            placeholder="Email address">
+                            placeholder="Email address" required>
                         </input></div>
                     <div className="form-group mb-6">
                         <input type="password" className="form-control block
@@ -40,7 +40,7 @@ export default function LogIn() {
                             m-0
                             focus:ring-green-700
                             focus:border-green-700 focus:outline-none" id="password2"
-                            placeholder="Password"></input>
+                            placeholder="Password" required></input>
                     </div>
                     <button type="submit" className="
                         w-full

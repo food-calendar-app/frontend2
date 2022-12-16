@@ -27,7 +27,7 @@ export default function SignUp() {
                                 m-0
                                 focus:ring-green-700
                                 focus:border-green-700 focus:outline-none" id="firstName"
-                                placeholder="First name">
+                                placeholder="First name" required>
                             </input>
                         </div>
                         <div className="form-group mb-6">
@@ -44,7 +44,7 @@ export default function SignUp() {
                                 m-0
                                 focus:ring-green-700
                                 focus:border-green-700 focus:outline-none" id="lastName"
-                                placeholder="Last name">
+                                placeholder="Last name" required>
                             </input>
                         </div>
                     </div>
@@ -62,7 +62,7 @@ export default function SignUp() {
                             m-0
                             focus:ring-green-700
                             focus:border-green-700 focus:outline-none" id="emailAddress"
-                            placeholder="Email address">
+                            placeholder="Email address" required>
                         </input></div>
                     <div className="form-group mb-6">
                         <input type="password" className="form-control block
@@ -77,7 +77,7 @@ export default function SignUp() {
                             m-0
                             focus:ring-green-700
                             focus:border-green-700 focus:outline-none" id="password"
-                            placeholder="Password"></input>
+                            placeholder="Password" required></input>
                     </div>
                     <button type="submit" className="
                         w-full
